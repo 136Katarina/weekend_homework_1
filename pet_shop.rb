@@ -8,46 +8,64 @@ def total_cash(shop)
 end
 
 
+
+
+
+
 def add_or_remove_cash(shop, number)
   total = shop[:admin][:total_cash]
   shop[:admin][:total_cash] = total + number
 end
 
-# def add_or_remove_cash_remove(num)
-#   total = shop[:admin][:total_cash]
-#   result = total -= num
-#   return result
-# end
+
+def pets_sold(shop)
+ return shop[:admin][:pets_sold]
+end
+
+
+
 #
-# def pets_sold()
-#  return @petshop[:admin][:pets_sold]
-# end
-#
-#
-#
-# def increase_pets_sold(num_1)
-#   total = 0
-#   for pet in pets
-#     fin_num = @petshop[:admin][:pets_sold]
-#   result = fin_num + num_1.to_i
-# end
-# end
-#
-# def stock_count ()
-#   total = 0
-#   for pet in pets
-#     result = @petshop[:pets].count
-#     return result
-#   end
-# end
-#
-# def all_pets_by_breed_found (shop, breed1)
-#   new_array= []
-#
-#   for pet in shop[:pets]
-#     if pet[:breed] == breed1
-#       new_array.push(pet)
-#     end
-#     return new.array
-#   end
-# end
+def increase_pets_sold(shop,num_1)
+    fin_num = shop[:admin][:pets_sold]
+   shop[:admin][:pets_sold]= fin_num + num_1
+end
+
+
+def stock_count(shop)
+    return shop[:pets].count
+  end
+
+
+
+def pets_by_breed(shop, breed_name)
+  breed_array = []
+
+  for pet in shop[:pets]
+    if pet[:breed] == breed_name
+      breed_array.push(pet)
+    end
+  end
+    return breed_array
+end
+
+
+
+def pets_by_breed_not_found(shop, breed_name)
+  array = []
+
+  for pet in shop[:pets]
+    if pet[:breed] == breed_name
+      array.push(pet)
+    end
+  end
+      return array
+end
+
+
+def find_pet_by_name(shop, pet_name)
+  for pet in shop[:pets]
+    if pet[:name] == pet_name
+      return pet
+    end
+  end
+end
